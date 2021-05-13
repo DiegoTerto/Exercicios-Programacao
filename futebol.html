@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+
+<h5>Informe o numero de vitorias</h5>
+<input type="text" name="vitorias">
+<br>
+<h5>Informe o numero de empates</h5>
+<input type="text" name="empates">
+<button>Resultado</button>
+
+<script type="text/javascript">
+	function pulaLinha() {
+		document.write("<br>");
+		document.write("<br>");
+	}
+
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function mostraResultado () {
+		var pontos = vitorias.value * 3 + empates.value;
+
+		mostra("Os pontos do seu time é " + pontos);
+
+		if(pontos > 28) {
+			("Seu time está melhor que o ano passado.");
+		}
+
+		if(pontos < 28){
+			mostra("Seu time está pior que o ano passado.");
+		}
+		if(pontos == 28) {
+			mostra("Seu time está igual ao ano passado.");
+		}
+	}
+
+	var vitorias = document.querySelector("vitorias");
+	var empates = document.querySelector("empates");
+	var button = document.querySelector("button");
+
+	button.onclick = mostraResultado;
+</script>

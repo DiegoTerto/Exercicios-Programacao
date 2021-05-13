@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+
+<script type="text/javascript">
+	function pulaLinha() {
+		document.write("<br>");
+	}
+	function mostra(valor) {
+		document.write(valor);
+		pulaLinha();
+	}
+
+	var mediaIdade = 28;
+	var anoPortugueses = 1500;
+	var anoAtual = 2020;
+	var totalGeracoes = (anoAtual - anoPortugueses) / mediaIdade;
+
+	mostra("Media em que os casal tem filhos: " + mediaIdade + " anos");
+	mostra("Ano em que os Portugueses chegram no brasil: " + anoPortugueses);
+	mostra("Total de gerações que ja se passaram: " + Math.round(totalGeracoes) + " gerações");
+
+
+</script>

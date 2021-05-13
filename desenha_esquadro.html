@@ -1,0 +1,27 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    function desenhaEsquadro(xa1, ya1, xc1, yc1, xa2, ya2, xc2, yc2, cores) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle= cores[0];
+        pincel.beginPath();
+        pincel.moveTo(xa1, ya1);
+        pincel.lineTo(xa1, xc1);
+        pincel.lineTo(xc1, yc1);
+        pincel.fill();
+
+        pincel.fillStyle=cores[1];
+        pincel.beginPath();
+        pincel.moveTo(xa2, ya2);
+        pincel.lineTo(xa2, yc2);
+        pincel.lineTo(xc2, yc2);
+        pincel.fill();
+    }
+
+    var cores = ['black', 'white'];
+    
+    desenhaEsquadro(50, 50, 400, 400, 100, 175, 275, 350, cores);
+
+</script>

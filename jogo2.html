@@ -1,0 +1,60 @@
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 800, 600);
+
+    var xRetanguloPequeno = 720;
+    const yRetanguloPequeno = 0;
+    var xRetanguloGrande = 720;
+    const yRetanguloGrande = 320;
+
+    function desenhaRetanguloPequeno(x, y, width, height) {
+        pincel.fillStyle = 'blue';
+        pincel.fillRect(x, y, width, height);
+    }
+
+    function desenhaRetanguloGrande(x, y, width, height) {
+
+        pincel.fillStyle = 'blue';
+        pincel.fillRect(x, y, width, height);
+
+    }
+
+    function limpaTela() {
+        return pincel.clearRect(0, 0, 800, 600);
+    }
+
+    function atualizaTela() {
+        limpaTela();
+        desenhaRetanguloPequeno(xRetanguloPequeno, yRetanguloPequeno, 80, 150);
+        desenhaRetanguloGrande(xRetanguloGrande, yRetanguloGrande, 80, 350);
+        if((xRetanguloPequeno == 630) && (xRetanguloGrande == 630)) {
+            xRetanguloPequeno = 720;
+            xRetanguloGrande = 720;
+            desenhaRetanguloPequeno(xRetanguloPequeno, yRetanguloPequeno, 80, 150);
+            desenhaRetanguloGrande(xRetanguloGrande, yRetanguloGrande, 80, 350);
+        };
+
+        xRetanguloPequeno = 640;
+        xRetanguloGrande = 640;
+
+        xRetanguloPequeno = xRetanguloPequeno - 5;
+        xRetanguloGrande = xRetanguloGrande - 5;
+        
+        if(xRetanguloPequeno == 0) {
+            xRetanguloPequeno = 720;
+        };
+
+        if(xRetanguloGrande == 0) {
+            xRetanguloGrande = 720;
+        };
+    }
+
+    setInterval(atualizaTela, 500);
+
+</script>

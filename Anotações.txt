@@ -1,0 +1,154 @@
+﻿Tags
+
+<br> -> (break) pular linha
+<h1></h1> -> (heading) cabeçalho
+<a></a> -> Ancora
+<input/> -> entrada, o usuario vai entrar com algum dado. Cria uma caixa de texto retangular.
+<button></button> -> Cria um botão.
+
+JavaScript
+
+Textos -> ""
+comandos -> () Ex: alert();
+
+document.write() -> Exibe alguma coisa no mundo HTML, escreve na tela.
+document.querySelector() -> pega um valor de uma tag no mundo HTML e passa para o mundo javaScript.
+
+function algumacoisa() {
+	
+} -> As funções é um conjunto de código que você dejesa que seja executado depois, ela guarda um código. E uma função pode retornar um valor com o comando (return algumacoisa).
+--------------------------------------------------------------------------------------------------------------------
+Estruturas de repetição
+
+while(Enquanto ou repita) {
+
+} -> é usado quando vc quer que alguma coisa seja executada varias vezes.
+
+for(var algumacoisa; algumacoisa == algumacoisa; algumacoisa++) {
+	
+} -> é como se fosse um "para", geralmente é usado quando vc ja sabe quantas vezes será executado tal coisa.
+--------------------------------------------------------------------------------------------------------------------
+tagHTML.value -> usa quando vc quer o valor de tal variavel que foi declarada anteriomente com "document.querySelector()". Ex: var input = document.querySelector("input");
+				input.value;
+tagHTML.focus -> Ex: input.focus -> foca para mim no input, quando recarregar a pagina a caixa do input já vai estar marcada para poder digitar algo, sem precisar clickar na caixa.
+
+Math.random() * 10) -> gera um numero alatório de 0 a 10.
+Math.round() -> arredonda um numero.
+Math.floor() -> é praticamente a mesma coisa que o Math.round a unica diferança é que ele arredonda o numero para baixo.
+
+algumacoisa++ -> soma + 1 no valor dessa variavel.
+====================================================================================================================
+Estrutura condicional
+
+if() {
+
+} else {
+
+} -> se tal coisa for true, faça tal coisa. Se nao faça outra coisa.
+====================================================================================================================
+Array
+
+var algumacoisa = [conteúdo, conteúdo, conteúdo...];
+
+algumacoisa.push() -> empurra um valor para dentro da array.
+====================================================================================================================
+var qualquerCoisa = algumaCoisa.getContext() -> serve para você indicar qual é o contexto de tal coisa. 
+Ex: var pincel = tela.getContext('2d');
+
+algumaCoisa.fillRect(x, y, width, heigth) -> fill(preencher), Rect(retangulo) -> preencha um retangulo.
+Ex: pincel.fillRect(0, 0, 600, 400); -> então o pincel está posicionado na posição 0 do eixo x e y, e vai pintar de 600 de largura e 400 de altura e vai preencher com alguma cor padrão.
+
+algumaCoisa.fillStyle = 'algumaCoisa' -> preencha com algum estilo, qual é o estilo.
+Ex: pincel.fillStyle = 'lightgrey'; -> então ele vai preencher onde foi pintado com a cor que fillStyle recebeu. OBS: Você tem que passar o estilo(Style) primeiro antes de pintar, porque nao faz sentido você pintar primeiro e depois passar outra cor.
+
+algumaCoisa.baginPath(); -> quer dizer que eu quero começar um caminho, vou passar um caminho, onde meu pincel vai seguir.
+Ex: pincel.beginPath(); -> começei o caminho agora eu tenho que passar o caminho que o pincel vai seguir, vai percorrer. Eu uso a função .baginPath para dizer que eu quero começar a dizer qual é o caminho que meu pincel vai seguir.
+
+algumaCoisa.moveTo(x, y); -> quer dizer que estou indicando ao pincel onde ele deve começar o caminho, o ponto de partida, onde o pincel está localizado, mas ele ainda não desenhou nada, o ponto de partida do pincel, para ele começar a pintar.
+Ex: pincel.moveTo(300, 200); -> então o pincel vai começar a pintar, da posição x = 300 e na posição y = 200.
+
+algumaCoisa.lineTo(x, y); -> quer dizer que vou trassar uma linha até posição que eu passar.
+Ex: pincel.lineTo(200, 400) -> Então da posicão onde meu pincel está, ele vai trassar uma linha até o eixo x = 200 e y = 400.
+pincel.lineTo(400, 400) -> vai trassar outra linha até x = 400 e y = 400.
+
+Agora para preencher toda essa area que foi definida, todo esse caminho que foi definido para o pincel percorrer, bastar usar pincel.fill(), e ele var preencher todo o local onde foi feito a caminho (formando um triângulo).
+
+Para desenhar um circulo utilizamos o pincel.arc(x, y, raio, grauInicial, grauFinal);
+
+Todas essas funções como .fillRect .moveTo .lineTo .arc .fillStyle, todas essas funções que foram usadas para desenhar alguma coisa na tela é uma API (biblioteca do javaScript).
+
+DESENHAR UMA BORDA NO RETANGULO 
+
+pincel.strokeStyle = 'recebe a cor da borda que você quer'.
+
+pincel.strokeRect(x, y, largura, altura).
+
+DESENHAR UM TEXTO
+
+pincel.font = 'recebe o tamanho da fonte e o nome da fonte que você quer, o tipo dela'.
+pincel.fillText(texto, x, y) -> dentro da função fillText você vai passar o texto que quer escrever e a posicão desse texto.
+
+tela.onclick = desenhaCirculo; -> quando eu passo a função desenhaCirculo para o onclick, quem chama essa função é o próprio navegador e o navegador por trás dos panos ele tem um parametro que ele pode passar para essa função que foi atribuida ao onclick, esse parâmetro tem varias informações, dentro dessas informações, tem a posição do x e y da onde eu cliquei na tela. Quando você vai declarar esse função que vai ser executada depois, você passa um parâmetro para esse função para que quando ele for passada no onclick e o navegador executar essa função ele possa passar o parâmetro para o parâmetro que você passou na função.
+
+Para eu pegar o valor do X e do Y de onde eu cliquei na tela, basta passar o nome do parâmetro que passei na função, para o proprio navegador passar para mim, e coloca .pageX e pageY. Com isso ele vai me dar o valor da posição X e Y de onde cliquei na tela.
+Ex: var X = evento.pageX - tela.offsetLeft;
+    var Y = evento.pageY - tela.offsetTop;
+
+O tela.offsetLeft/Top serve para tirar a borda que fica quando voçê cria o canvas, para que quando você clicar ana tala o eixo X e Y, vai ser do canvas e não da tela inteira.
+
+onmousedown -> ao pressionar o botão esquerdo do mouse faça algo.
+onmouseup -> quando eu soltar o botão esquerdo do mouse faça algo.
+onmousemove -> no movimento do meu mouse faça algo. Serve para capturar o movimento do meu mouse.
+onkeyDown -> captura o codigo da tecla que foi pressinada. Toda tecla to teclado existe um codigo de indentificação, para saber qual tecla foi pressionada. Na internet tem uma tabela dos codigos de cada tecla específica.
+
+function() {
+
+}
+Isso é uma função anonima, é quando eu quero criar uma funcão sem nome, uma função anonima não pode existir solta, porque como não tem um nome, ninguém será capaz de chama-lá, mas podemos atribuir a função anônima diretamente a uma variável ou a uma propriedade, como tela.onmousedown e tela.onmouseup.
+
+Ex: tela.onmousedown = function() {	
+	
+	desenha = true;
+    }
+
+setInterval -> Peço para o javaScript executar tal coisa, com um intervalo de tempo. Ela aceita receber, como parâmetro, a função que você deseja chamar e, depois, a quantidade de tempo que desejamos dar de intervalo em milissegundos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

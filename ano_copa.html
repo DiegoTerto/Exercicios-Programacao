@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<h3>Informe abaixo o ano limite:</h3>
+<br>
+<input type="text" name="Limite">
+<input type="text">
+<button>Mostrar anos que teve copa</button>
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function mostraAnos() {
+        while (anoCopa <= limite.value) {
+    	    mostra("Teve copa em " + anoCopa);
+    	    anoCopa = anoCopa + 4;
+        }
+    }
+
+    var anoCopa = 1930;
+    var limite = document.querySelector("input");
+    var button = document.querySelector("button");
+
+    button.onclick = mostraAnos;
+</script>

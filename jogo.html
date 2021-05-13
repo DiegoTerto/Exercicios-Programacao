@@ -1,0 +1,64 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 800, 800);
+
+    function desenhaRetangulo(x, y, width, height, cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, width, height);
+    }
+
+    function desenhaCirculo(x, y, raio, corDoCirculo) {
+        pincel.fillStyle = corDoCirculo;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+    
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    function atualizaTela() {
+        limpaTela();
+        desenhaCirculo(xBolinha1, 30, 20, "blue");
+        desenhaCirculo(xBolinha2, 300, 20, "red");
+    }
+
+    function leDoTeclado(evento) {
+        if(evento.keyCode == teclaBolinha1) {
+            xBolinha1 = xBolinha1 + 10;
+        }
+
+        if(evento.keyCode == teclaBolinha2) {
+            xBolinha2 = xBolinha2 + 10;
+        }
+    }
+    
+    var teclaBolinha1 = 39;
+    var teclaBolinha2 = 68;
+
+    var xBolinha1 = 20;
+    var xBolinha2 = 20;
+
+    var limite = 750;
+
+    desenhaRetangulo(0, 170, 600, 50, 'red');
+
+    setInterval(atualizaTela, 5);
+
+    document.onkeydown = leDoTeclado;
+
+    if(xBolinha1 == limite) {
+        alert('Azul ganhou');
+    }
+
+    if(xBolinha2 == limite) {
+        alert('Vermelho ganhou');
+    }
+
+</script>

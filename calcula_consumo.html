@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+
+<h3>Álcool ou  Gasolina?</h3>
+<h5>Informe o tamanho do tanque em Litros:</h5>
+<input type="text" name="Tanque">
+<br>
+<h5>Informe os quilometros percorridos com Gasolina:</h5>
+<input type="text" name="quilometrosGasolina">
+<br>
+<h5>Informe os quilometros percorridos com alcool:</h5>
+<input type="text" name="quilometrosAlcool">
+<br>
+<button>Calcular quilômetros percorridos com gasolina e alcool</button>
+
+<script type="text/javascript">
+	function pulaLinha() {
+		document.write("<br><br>");
+	}
+
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function calcula() {
+		mostra("Tanque: " + tanque + " L");
+		mostra("Quilômetros percorridos com gasolina: " + caminhoComGasolina + " km");
+
+		var consumoDeGasolina = caminhoComGasolina / tanque;
+
+		mostra("O consumo de gasolina foi: " + consumoDeGasolina + " Km/L");
+		mostra("Quilômetros percorridos com álcool: " + caminhoComAlcool + " km");
+ 
+		var consumoDeAlcool = caminhoComAlcool / tanque;
+
+		mostra("O consumo de Alcool foi: " + consumoDeAlcool + " Km/L");
+	}
+
+	var tanque = document.querySelector("Tanque");
+	var caminhoComGasolina = document.querySelector("quilometrosGasolina");
+	var caminhoComAlcool = document.querySelector("quilometrosAlcool");
+	var button = document.querySelector("button");
+
+	button.onclick = calcula;
+</script>
